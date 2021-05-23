@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageHelper } from './helpers/localstorageHelper';
 import { AccountService } from './_services/account.service';
 
 @Component({
@@ -18,10 +19,10 @@ export class AppComponent implements OnInit {
   }
 
   setCurrentUser() {
-    let item = localStorage.getItem('user');
+    let user = LocalStorageHelper.GetUser();
 
-    if (item) {
-      this.accoutService.setCurrentUser(JSON.parse(item));
+    if (user) {
+      this.accoutService.setCurrentUser(JSON.parse(user));
     }
     else {
       this.accoutService.logout();
