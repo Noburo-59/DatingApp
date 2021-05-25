@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs/operators';
 import { LocalStorageHelper } from './helpers/localstorageHelper';
 import { AccountService } from './_services/account.service';
+import { BusyService } from './_services/busy.service';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +10,22 @@ import { AccountService } from './_services/account.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  load = false;
+
   title = 'The Dating App';
   users: any;
 
-  constructor(private accoutService: AccountService) {
-  }
+  constructor(private accoutService: AccountService, private busyService: BusyService) { }
 
   ngOnInit() {
     this.setCurrentUser();
+
+    this.busyService.BusyObservable$.
+      pipe(
+      delay(100)).
+      subscribe(show => {
+      this.load = show;
+    })
   }
 
   setCurrentUser() {

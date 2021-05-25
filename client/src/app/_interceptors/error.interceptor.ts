@@ -19,6 +19,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError(error => {
         if (error) {
+          const navigationExtras: NavigationExtras = { state: { error: error.error } }
           switch (error.status) {
             case 400:
               if (error.error.errors) {
@@ -40,7 +41,6 @@ export class ErrorInterceptor implements HttpInterceptor {
               this.router.navigateByUrl('/not-found');
               break;
             case 500:
-              const navigationExtras: NavigationExtras = { state: { error: error.error } }
               this.router.navigateByUrl('/server-error', navigationExtras);
               break;
             default:

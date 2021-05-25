@@ -14,11 +14,11 @@ export class LocalStorageHelper {
         return localStorage.getItem(LocalStorageHelper.keys.user);
     }
 
-    static SetItem(name: string, value: string) {
-        localStorage.setItem(name, JSON.stringify(value));        
+    static SetItem(key: string, user: User) {
+        localStorage.setItem(key, JSON.stringify(user));        
     }
 
-    static RemoveItem(name: string) {
-        localStorage.removeItem(name);
+    static RemoveItem(key: string) {
+        localStorage.removeItem(key);
     }
 }

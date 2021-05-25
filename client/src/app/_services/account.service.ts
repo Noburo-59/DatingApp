@@ -16,7 +16,7 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   login(model: any) {
-    return this.http.post<any>(environment.loginUrl, model).pipe(
+    return this.http.post<User>(environment.loginUrl, model).pipe(
       map(user => {
         if (user) {
           LocalStorageHelper.SetItem(LocalStorageHelper.keys.user, user);
@@ -27,7 +27,7 @@ export class AccountService {
   }
 
   register(model: any) {
-    return this.http.post<any>(environment.registerUrl, model).pipe(
+    return this.http.post<User>(environment.registerUrl, model).pipe(
       map(user => {
         if (user) {
           LocalStorageHelper.SetItem(LocalStorageHelper.keys.user, user);
