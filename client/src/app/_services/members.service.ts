@@ -39,4 +39,12 @@ export class MembersService {
       })
     )
   }
+
+  setMainPhoto(photoId: number) {
+    return this.http.put(environment.photoSetMain + photoId, {});
+  }
+
+  deletePhoto(photoId: number) {
+    return this.http.delete(environment.photoDelete + photoId, {});
+  }
 }

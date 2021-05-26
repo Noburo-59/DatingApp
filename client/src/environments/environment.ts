@@ -3,12 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: false, 
   apiUrl: 'https://localhost:5001/api/',
   loginUrl: 'https://localhost:5001/api/account/login',         
   registerUrl: 'https://localhost:5001/api/account/register',        
   usersUrl: 'https://localhost:5001/api/users',        
-  userUrl: 'https://localhost:5001/api/users/'        
+  userUrl: 'https://localhost:5001/api/users/',        
+  photoUrl: 'https://localhost:5001/api/users/add-photo',
+  photoSetMain: 'https://localhost:5001/api/users/set-main-photo/',  
+  photoDelete: 'https://localhost:5001/api/users/delete-photo/'      
 };
 
 /*

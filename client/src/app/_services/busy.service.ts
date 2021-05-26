@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class BusyService {
   busyRequestCount = 0;
   busyBehaviorSubject = new BehaviorSubject(false);
-  BusyObservable$ = this.busyBehaviorSubject.asObservable();
+  busy$ = this.busyBehaviorSubject.asObservable();
 
     constructor() { }
 

@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.setCurrentUser();
 
-    this.busyService.BusyObservable$.
+    this.busyService.busy$.
       pipe(
       delay(100)).
       subscribe(show => {

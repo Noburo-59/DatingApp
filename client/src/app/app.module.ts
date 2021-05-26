@@ -26,6 +26,7 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { NgxLoadingModule } from 'ngx-loading';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NgxLoadingModule } from 'ngx-loading';
     NotFoundComponent,
     ServerErrorComponent,
     MemberCardComponent,
-    MemberEditComponent
+    MemberEditComponent,
+    PhotoEditorComponent
   ],
   imports: [
     BrowserModule,

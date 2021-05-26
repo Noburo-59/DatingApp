@@ -19,8 +19,7 @@ export class AccountService {
     return this.http.post<User>(environment.loginUrl, model).pipe(
       map(user => {
         if (user) {
-          LocalStorageHelper.SetItem(LocalStorageHelper.keys.user, user);
-          this.currentUserSource.next(user);          
+          this.setCurrentUser(user);       
         }
       })
     );
@@ -30,14 +29,14 @@ export class AccountService {
     return this.http.post<User>(environment.registerUrl, model).pipe(
       map(user => {
         if (user) {
-          LocalStorageHelper.SetItem(LocalStorageHelper.keys.user, user);
-          this.currentUserSource.next(user);
+         this.setCurrentUser(user);
         }        
       })
     )
   }
 
   setCurrentUser(user: User) {
+    LocalStorageHelper.SetItem(LocalStorageHelper.keys.user, user);
     this.currentUserSource.next(user);
   }
 
